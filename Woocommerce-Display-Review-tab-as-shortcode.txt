@@ -1,0 +1,26 @@
+// Create a custom shortcode to display the product review content (reviews and review form)
+function custom_product_review_content_shortcode() {
+    // Check if we're on a single product page
+    if (is_product()) {
+        global $product;
+
+        // If there's no product, return an error message
+        if (!$product) {
+            return 'Product not found.';
+        }
+
+        // Get the product's ID
+        $product_id = $product->get_id();
+
+        // Output the reviews and review form using the WooCommerce template
+        ob_start();
+
+        // Display the reviews
+        comments_template(); // This will display the reviews tab content
+
+        return ob_get_clean();
+    }
+
+    return ''; // Return nothing if not on a product page
+}
+add_shortcode('product_reviews_content', 'custom_product_review_content_shortcode');
