@@ -1,4 +1,4 @@
-// Create a custom shortcode to display the product review content (reviews and review form)
+// Create a custom shortcode to display the product review content (reviews and review form) - add this code in functions.php
 function custom_product_review_content_shortcode() {
     // Check if we're on a single product page
     if (is_product()) {
@@ -24,3 +24,4 @@ function custom_product_review_content_shortcode() {
     return ''; // Return nothing if not on a product page
 }
 add_shortcode('product_reviews_content', 'custom_product_review_content_shortcode');
+// add shortcode [product_reviews_content] in single product page to show review content
